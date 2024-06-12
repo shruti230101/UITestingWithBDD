@@ -3,7 +3,7 @@ Feature: Validating multiple webelements on different websites
     Given I am on the amazon website
     When I search for "headphones"
     And I click on the Brands dropdown and on filter checkbox of "Sony" brand
-    Then I verify the "Results" text
+    Then I verify the text
     And I switch to a new tab
 
   Scenario: Validate the dynamic content on the page

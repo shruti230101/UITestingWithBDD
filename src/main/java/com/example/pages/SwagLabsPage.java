@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.example.constants.ElementLocatorConstants;
+import com.example.utils.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,16 +12,16 @@ import java.util.List;
 
 public class SwagLabsPage extends BasePage{
 
-    @FindBy(id = "user-name")
+    @FindBy(id = ElementLocatorConstants.USER_NAME_FIELD_ID)
     private WebElement userNameField;
 
-    @FindBy(id = "password")
+    @FindBy(id = ElementLocatorConstants.PASSWORD_FIELD_ID)
     private WebElement passwordField;
 
-    @FindBy(id = "login-button")
+    @FindBy(id = ElementLocatorConstants.LOGIN_BUTTON_ID)
     private WebElement loginButton;
 
-    @FindBy(xpath = "//div[@class='inventory_item_description']")
+    @FindBy(xpath = ElementLocatorConstants.PRODUCTS_XPATH)
     private List<WebElement> products;
 
     public SwagLabsPage(WebDriver webDriver) {
@@ -28,7 +30,7 @@ public class SwagLabsPage extends BasePage{
 
     public void launchPage()
     {
-        webDriver.get("https://www.saucedemo.com/");
+        webDriver.get(ConfigReader.SWAG_LABS_PAGE_URL);
     }
 
     public void loginToWebsite(String username, String password)

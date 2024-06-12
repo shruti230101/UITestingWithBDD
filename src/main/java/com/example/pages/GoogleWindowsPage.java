@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.example.constants.ElementLocatorConstants;
+import com.example.utils.ConfigReader;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class GoogleWindowsPage extends BasePage{
 
-    @FindBy(id = "APjFqb")
+    @FindBy(id = ElementLocatorConstants.GOOGLE_SEARCH_BOX_ID)
     private WebElement searchBox;
 
-    @FindBy(linkText = "Selenium")
+    @FindBy(linkText = ElementLocatorConstants.RESULT_LINK_TEXT)
     private WebElement resultLink;
 
     public GoogleWindowsPage(WebDriver webDriver)
@@ -21,7 +23,7 @@ public class GoogleWindowsPage extends BasePage{
 
     public void launchPage()
     {
-        webDriver.get("https://www.google.com");
+        webDriver.get(ConfigReader.GOOGLE_WINDOWS_PAGE_URL);
     }
 
     public void makeSearch(String search)

@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.example.constants.ElementLocatorConstants;
+import com.example.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
@@ -8,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class MouseHoverPage extends BasePage{
 
-    @FindBy(xpath = "//a[text()='Desktops']")
+    @FindBy(xpath = ElementLocatorConstants.DESKTOPS_OPTION_XPATH)
     private WebElement desktopsOption;
 
-    @FindBy(xpath = "//a[text()='Mac (1)']")
+    @FindBy(xpath = ElementLocatorConstants.MAC_OPTION_XPATH)
     private WebElement macOption;
     public MouseHoverPage(WebDriver webDriver) {
         super(webDriver);
@@ -19,7 +21,7 @@ public class MouseHoverPage extends BasePage{
 
     public void launchPage()
     {
-        webDriver.get("https://demo.opencart.com/");
+        webDriver.get(ConfigReader.MOUSE_HOVER_PAGE_URL);
     }
 
     public void performMouseHoverActions()

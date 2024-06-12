@@ -36,10 +36,10 @@ public class AmazonStepDefinitions {
     }
     @When("I click on the Brands dropdown and on filter checkbox of {string} brand")
     public void i_click_on_the_brands_dropdown_and_on_filter_checkbox_of_brand(String string) {
-        amazonPage.filterBrand(string);
+        amazonPage.filterBrand();
     }
-    @Then("I verify the {string} text")
-    public void i_verify_the_text(String string) {
+    @Then("I verify the text")
+    public void i_verify_the_text() {
         Assert.assertEquals(amazonPage.isHeaderDisplayed(), "Results");
     }
     @Then("I switch to a new tab")

@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.example.constants.ElementLocatorConstants;
+import com.example.utils.ConfigReader;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,16 +10,16 @@ import org.openqa.selenium.support.FindBy;
 
 public class AmazonPage extends BasePage{
 
-    @FindBy(id = "twotabsearchtextbox")
+    @FindBy(id = ElementLocatorConstants.SEARCH_BOX_ID)
     private WebElement searchBox;
 
-    @FindBy(id = "p_89-title")
+    @FindBy(id = ElementLocatorConstants.BRANDS_MENU_ID)
     private WebElement brandsMenu;
 
-    @FindBy(xpath = "//li[@id='p_89/Sony']/span/a/div/label/i")
+    @FindBy(xpath = ElementLocatorConstants.BRAND_OPTION_XPATH)
     private WebElement brandOption;
 
-    @FindBy(xpath = "//div[@class='s-no-outline']/span")
+    @FindBy(xpath = ElementLocatorConstants.RESULTS_HEADER_XPATH)
     private WebElement resultsHeader;
 
     public AmazonPage(WebDriver webDriver)
@@ -27,7 +29,7 @@ public class AmazonPage extends BasePage{
 
     public void launchPage()
     {
-        webDriver.get("http://amazon.in");
+        webDriver.get(ConfigReader.AMAZON_PAGE_URL);
     }
 
     public void searchProduct(String product)
@@ -36,7 +38,7 @@ public class AmazonPage extends BasePage{
         searchBox.sendKeys(product, Keys.RETURN);
     }
 
-    public void filterBrand(String brand)
+    public void filterBrand()
     {
         waitUntilElementFound(brandsMenu);
         brandsMenu.click();

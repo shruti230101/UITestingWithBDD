@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.example.constants.ElementLocatorConstants;
+import com.example.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
@@ -8,16 +10,16 @@ import org.openqa.selenium.support.FindBy;
 
 public class ImageDragDropPage extends BasePage{
 
-    @FindBy(xpath = "//iframe[@class='demo-frame lazyloaded']")
+    @FindBy(xpath = ElementLocatorConstants.FRAME_WINDOW_XPATH)
     private WebElement frameWindow;
 
-    @FindBy(xpath = "//li[1]")
+    @FindBy(xpath = ElementLocatorConstants.FIRST_IMAGE_XPATH)
     private WebElement firstImage;
 
-    @FindBy(xpath = "//li[2]")
+    @FindBy(xpath = ElementLocatorConstants.SECOND_IMAGE_XPATH)
     private WebElement secondImage;
 
-    @FindBy(id = "trash")
+    @FindBy(id = ElementLocatorConstants.TARGET_TRASH_ID)
     private WebElement targetTrash;
 
     public ImageDragDropPage(WebDriver webDriver) {
@@ -26,7 +28,7 @@ public class ImageDragDropPage extends BasePage{
 
     public void launchPage()
     {
-        webDriver.get("https://www.globalsqa.com/demo-site/draganddrop/");
+        webDriver.get(ConfigReader.IMAGE_DRAG_DROP_PAGE_URL);
     }
 
     public void dragAndDropImages()

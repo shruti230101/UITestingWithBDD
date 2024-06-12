@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.example.constants.ElementLocatorConstants;
+import com.example.utils.ConfigReader;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,16 +10,16 @@ import org.openqa.selenium.support.FindBy;
 
 public class AlertsPage extends BasePage{
 
-    @FindBy(xpath = "//button[@onclick='jsAlert()']")
+    @FindBy(xpath = ElementLocatorConstants.JS_ALERT_BUTTON_XPATH)
     private WebElement jsAlertButton;
 
-    @FindBy(xpath = "//button[@onclick='jsConfirm()']")
+    @FindBy(xpath = ElementLocatorConstants.JS_CONFIRM_BUTTON_XPATH)
     private WebElement jsConfirmButton;
 
-    @FindBy(xpath = "//button[@onclick='jsPrompt()']")
+    @FindBy(xpath = ElementLocatorConstants.JS_PROMPT_BUTTON_XPATH)
     private WebElement jsPromptButton;
 
-    @FindBy(id = "result")
+    @FindBy(id = ElementLocatorConstants.RESULT_ID)
     private WebElement result;
 
     public AlertsPage(WebDriver webDriver) {
@@ -26,7 +28,7 @@ public class AlertsPage extends BasePage{
 
     public void launchPage()
     {
-        webDriver.get("https://the-internet.herokuapp.com/javascript_alerts");
+        webDriver.get(ConfigReader.ALERTS_PAGE_URL);
     }
 
     public void handleJSAlert()

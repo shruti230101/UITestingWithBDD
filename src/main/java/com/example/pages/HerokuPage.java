@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.example.constants.ElementLocatorConstants;
+import com.example.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
@@ -7,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class HerokuPage extends BasePage{
 
-    @FindBy(xpath = "//div[@id='content']/div/div/div/div[3]/div[2]")
+    @FindBy(xpath = ElementLocatorConstants.BEFORE_TEXT_XPATH)
     private WebElement beforeText;
     public HerokuPage(WebDriver webDriver)
     {
@@ -16,7 +18,7 @@ public class HerokuPage extends BasePage{
 
     public void launchPage()
     {
-        webDriver.get("https://the-internet.herokuapp.com/dynamic_content");
+        webDriver.get(ConfigReader.HEROKU_PAGE_URL);
     }
 
     public String fetchText()

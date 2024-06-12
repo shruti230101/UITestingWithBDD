@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.example.constants.ElementLocatorConstants;
+import com.example.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
@@ -7,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class AuthenticatedPopupPage extends BasePage{
 
-    @FindBy(xpath = "//h3")
+    @FindBy(xpath = ElementLocatorConstants.HEADER_XPATH)
     private WebElement header;
 
     public AuthenticatedPopupPage(WebDriver webDriver) {
@@ -19,7 +21,7 @@ public class AuthenticatedPopupPage extends BasePage{
 
     public void launchPage()
     {
-        webDriver.get("https://admin:admin@the-internet.herokuapp.com/basic_auth");
+        webDriver.get(ConfigReader.AUTHENTICATION_POPUP_PAGE_URL);
     }
 
     public boolean isLogInSuccessful()

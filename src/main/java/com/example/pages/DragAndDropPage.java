@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.example.constants.ElementLocatorConstants;
+import com.example.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
@@ -8,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 
 public class DragAndDropPage extends BasePage{
 
-    @FindBy(id = "box6")
+    @FindBy(id = ElementLocatorConstants.SOURCE_ROME_ID)
     private WebElement sourceRome;
 
-    @FindBy(id = "box106")
+    @FindBy(id = ElementLocatorConstants.TARGET_ITALY_ID)
     private WebElement targetItaly;
 
     public DragAndDropPage(WebDriver webDriver) {
@@ -20,7 +22,7 @@ public class DragAndDropPage extends BasePage{
 
     public void launchPage()
     {
-        webDriver.get("http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html");
+        webDriver.get(ConfigReader.DRAG_AND_DROP_PAGE_URL);
     }
 
     public void dragAndDrop()

@@ -1,5 +1,7 @@
 package com.example.pages;
 
+import com.example.constants.ElementLocatorConstants;
+import com.example.utils.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
@@ -9,7 +11,7 @@ import java.util.List;
 
 public class WebShopPage extends BasePage{
 
-    @FindBy(tagName = "a")
+    @FindBy(tagName = ElementLocatorConstants.LINKS_TAG_NAME)
     private List<WebElement> links;
     public WebShopPage(WebDriver webDriver) {
         super(webDriver);
@@ -17,7 +19,7 @@ public class WebShopPage extends BasePage{
 
     public void launchPage()
     {
-        webDriver.get("https://demowebshop.tricentis.com/");
+        webDriver.get(ConfigReader.WEB_SHOP_PAGE_URL);
     }
 
     public void extractAllLinksText()
